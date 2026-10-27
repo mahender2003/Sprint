@@ -1,0 +1,288 @@
+<mvc:View
+    id="landingView"
+    controllerName="animaladoption.animaladoption.controller.landingpage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page
+        id="landingPage"
+        showHeader="false"
+        enableScrolling="true"
+        class="landingPage">
+
+        <content>
+            <VBox
+                id="landingMain"
+                width="100%"
+                alignItems="Center"
+                class="landingMain">
+
+                <HBox
+                    id="landingHero"
+                    width="100%"
+                    alignItems="Center"
+                    justifyContent="Center"
+                    class="landingHero">
+
+                    <VBox
+                        id="landingIntro"
+                        width="100%"
+                        alignItems="Center"
+                        class="landingIntro">
+
+                        <Text
+                            id="landingEyebrow"
+                            text="PAWTRACK • ANIMAL ADOPTION"
+                            class="landingEyebrow" />
+
+                        <Title
+                            id="landingHeadline"
+                            text="Every animal deserves a loving home."
+                            level="H1"
+                            wrapping="true"
+                            class="landingHeadline" />
+
+                        <Text
+                            id="landingSubtitle"
+                            text="Discover your new best friend, or help us make every adoption a happy beginning."
+                            wrapping="true"
+                            class="landingSubtitle" />
+
+                        <HBox
+                            id="landingHighlights"
+                            wrap="Wrap"
+                            justifyContent="Center"
+                            alignItems="Center"
+                            class="landingHighlights">
+
+                            <ObjectStatus
+                                id="highlightCompanion"
+                                text="Find a companion"
+                                icon="sap-icon://heart"
+                                state="Success" />
+
+                            <ObjectStatus
+                                id="highlightCare"
+                                text="Support animal care"
+                                icon="sap-icon://activity-items"
+                                state="Information" />
+
+                            <ObjectStatus
+                                id="highlightDifference"
+                                text="Make a difference"
+                                icon="sap-icon://world"
+                                state="Warning" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+                <HBox
+                    id="landingCards"
+                    width="100%"
+                    wrap="Wrap"
+                    justifyContent="Center"
+                    alignItems="Stretch"
+                    class="landingCards">
+
+                    <!-- USER PORTAL CARD -->
+                    <VBox
+                        id="userPortalCard"
+                        width="100%"
+                        class="landingCard userCard">
+
+                        <Image
+                            id="userPortalImage"
+                            src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&amp;fit=crop&amp;crop=faces&amp;w=1000&amp;h=500&amp;q=90"
+                            width="100%"
+                            height="220px"
+                            decorative="false"
+                            alt="Dog looking toward the camera"
+                            class="landingCardImage" />
+
+                        <VBox
+                            id="userPortalCardBody"
+                            class="landingCardBody">
+
+                            <ObjectStatus
+                                id="userPortalTag"
+                                text="FOR ADOPTERS"
+                                state="Success"
+                                class="landingCardTag" />
+
+                            <Title
+                                id="userPortalTitle"
+                                text="User Portal"
+                                level="H2"
+                                class="landingCardTitle" />
+
+                            <Text
+                                id="userPortalDescription"
+                                text="Meet animals waiting for a family, explore their stories, and manage your adoption applications in one place."
+                                wrapping="true"
+                                class="landingCardDescription" />
+
+                            <VBox
+                                id="userPortalFeatures"
+                                class="landingFeatureList">
+
+                                <HBox
+                                    id="userFeatureBrowse"
+                                    alignItems="Center">
+                                    <core:Icon
+                                        id="userFeatureBrowseIcon"
+                                        src="sap-icon://search" />
+                                    <Text
+                                        id="userFeatureBrowseText"
+                                        text="Browse animals available for adoption"
+                                        wrapping="true" />
+                                </HBox>
+
+                                <HBox
+                                    id="userFeatureApplications"
+                                    alignItems="Center">
+                                    <core:Icon
+                                        id="userFeatureApplicationsIcon"
+                                        src="sap-icon://document-text" />
+                                    <Text
+                                        id="userFeatureApplicationsText"
+                                        text="Apply and follow your applications"
+                                        wrapping="true" />
+                                </HBox>
+
+                                <HBox
+                                    id="userFeatureProfile"
+                                    alignItems="Center">
+                                    <core:Icon
+                                        id="userFeatureProfileIcon"
+                                        src="sap-icon://person-placeholder" />
+                                    <Text
+                                        id="userFeatureProfileText"
+                                        text="Manage your profile and adoption details"
+                                        wrapping="true" />
+                                </HBox>
+                            </VBox>
+
+                            <Button
+                                id="browseAnimalsButton"
+                                text="Explore Animals"
+                                type="Emphasized"
+                                icon="sap-icon://arrow-right"
+                                iconFirst="false"
+                                width="100%"
+                                press=".onBrowseAnimals"
+                                class="landingCardButton" />
+                        </VBox>
+                    </VBox>
+
+                    <!-- ADMIN DASHBOARD CARD -->
+                    <VBox
+                        id="adminPortalCard"
+                        width="100%"
+                        class="landingCard adminCard">
+
+                        <Image
+                            id="adminPortalImage"
+                            src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&amp;fit=crop&amp;crop=faces&amp;w=1000&amp;h=500&amp;q=90"
+                            width="100%"
+                            height="220px"
+                            decorative="false"
+                            alt="Cat looking toward the camera"
+                            class="landingCardImage" />
+
+                        <VBox
+                            id="adminPortalCardBody"
+                            class="landingCardBody">
+
+                            <ObjectStatus
+                                id="adminPortalTag"
+                                text="FOR SHELTER TEAMS"
+                                state="Information"
+                                class="landingCardTag" />
+
+                            <Title
+                                id="adminPortalTitle"
+                                text="Admin Dashboard"
+                                level="H2"
+                                class="landingCardTitle" />
+
+                            <Text
+                                id="adminPortalDescription"
+                                text="Manage animal care and shelter operations from a central workspace designed to keep every record organized."
+                                wrapping="true"
+                                class="landingCardDescription" />
+
+                            <VBox
+                                id="adminPortalFeatures"
+                                class="landingFeatureList">
+
+                                <HBox
+                                    id="adminFeatureAnimals"
+                                    alignItems="Center">
+                                    <core:Icon
+                                        id="adminFeatureAnimalsIcon"
+                                        src="sap-icon://activity-items" />
+                                    <Text
+                                        id="adminFeatureAnimalsText"
+                                        text="Manage animals and health records"
+                                        wrapping="true" />
+                                </HBox>
+
+                                <HBox
+                                    id="adminFeatureApplications"
+                                    alignItems="Center">
+                                    <core:Icon
+                                        id="adminFeatureApplicationsIcon"
+                                        src="sap-icon://task" />
+                                    <Text
+                                        id="adminFeatureApplicationsText"
+                                        text="Review adoption applications"
+                                        wrapping="true" />
+                                </HBox>
+
+                                <HBox
+                                    id="adminFeatureShelters"
+                                    alignItems="Center">
+                                    <core:Icon
+                                        id="adminFeatureSheltersIcon"
+                                        src="sap-icon://home" />
+                                    <Text
+                                        id="adminFeatureSheltersText"
+                                        text="Track shelters and inspections"
+                                        wrapping="true" />
+                                </HBox>
+                            </VBox>
+
+                            <Button
+                                id="openAdminDashboardButton"
+                                text="Open Admin Console"
+                                type="Default"
+                                icon="sap-icon://arrow-right"
+                                iconFirst="false"
+                                width="100%"
+                                press=".onAdminDashboard"
+                                class="landingCardButton" />
+                        </VBox>
+                    </VBox>
+                </HBox>
+
+                <!-- FOOTER -->
+                <HBox
+                    id="landingFooter"
+                    width="100%"
+                    justifyContent="Center"
+                    alignItems="Center"
+                    class="landingFooter">
+
+                    <core:Icon
+                        id="landingFooterHeartIcon"
+                        src="sap-icon://heart" />
+
+                    <Text
+                        id="landingFooterText"
+                        text="Track. Care. Adopt. Give a Better Tomorrow." />
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

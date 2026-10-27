@@ -1,0 +1,912 @@
+/* Enter your custom styles here */
+.dashboardKpiRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.dashboardKpiRow .sapMGT {
+    flex: 1 1 12rem;
+    min-width: 12rem;
+    max-width: 17rem;
+}
+
+#applicationStatusPanel,
+#adoptionTrendPanel,
+#animalCategoriesPanel {
+    box-sizing: border-box;
+    min-width: 20rem;
+    flex: 1 1 28rem;
+}
+
+#applicationStatusChart,
+#adoptionTrendChart,
+#animalCategoriesChart {
+    width: 100%;
+    min-height: 18rem;
+}
+
+.sapMPanel {
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+/* Dashboard KPI tiles */
+.dashboardKpiRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.dashboardKpiRow .sapMGT {
+    flex: 1 1 12rem;
+    min-width: 12rem;
+    max-width: 17rem;
+}
+
+/* Dashboard chart panels */
+#applicationStatusPanel,
+#adoptionTrendPanel,
+#animalCategoriesPanel {
+    box-sizing: border-box;
+    min-width: 20rem;
+    flex: 1 1 28rem;
+}
+
+#applicationStatusChart,
+#adoptionTrendChart,
+#animalCategoriesChart {
+    width: 100%;
+    min-height: 18rem;
+}
+
+/* Animal page banner */
+.animalHeroSection {
+    box-sizing: border-box;
+    background: linear-gradient(110deg, #176b3a, #65b96b);
+    color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.animalHeroSection .sapMTitle,
+.animalHeroSection .sapMText {
+    color: white;
+}
+
+.animalHeroSection .sapMTitle {
+    white-space: normal;
+}
+
+/* Animal cards */
+.animalCard {
+    box-sizing: border-box;
+    margin: 0.5rem;
+    border: 1px solid #e2e8e4;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.animalCardImage {
+    display: block;
+    object-fit: cover;
+}
+
+.animalCardNoImage {
+    background: #f1f5f3;
+    color: #64748b;
+}
+
+.animalCard .sapMBtn {
+    margin-top: 0.75rem;
+}
+/* =========================================
+   PAWTRACK LANDING PAGE
+   ========================================= */
+
+.landingPage,
+.landingPage .sapMPageBgStandard {
+    background: #f4f7f8;
+}
+
+.landingMain {
+    box-sizing: border-box;
+    padding: 2rem 5vw 1.5rem;
+    gap: 1.5rem;
+}
+
+.landingHero {
+    max-width: 1100px;
+    padding: 1.5rem 1rem 0.5rem;
+    box-sizing: border-box;
+}
+
+.landingIntro {
+    gap: 0.9rem;
+    text-align: center;
+}
+
+.landingEyebrow {
+    color: #087e8b;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14rem;
+}
+
+.landingHeadline {
+    max-width: 850px;
+    color: #173042;
+    font-size: 2.7rem !important;
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
+}
+
+.landingSubtitle {
+    max-width: 720px;
+    color: #526675;
+    font-size: 1.08rem;
+    line-height: 1.65;
+    text-align: center;
+}
+
+.landingHighlights {
+    gap: 1.4rem;
+    margin-top: 0.3rem;
+}
+
+.landingCards {
+    max-width: 1100px;
+    gap: 1.5rem;
+}
+
+.landingCard {
+    flex: 1 1 420px;
+    max-width: 510px;
+    min-width: 280px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #dce5e9;
+    border-radius: 1rem;
+    box-shadow: 0 8px 28px rgba(25, 55, 75, 0.09);
+}
+
+.landingCardImage {
+    display: block;
+    object-fit: cover;
+    background: #e5edf0;
+}
+
+.landingCardBody {
+    padding: 1.5rem;
+    gap: 0.85rem;
+}
+
+.landingCardTag {
+    margin-bottom: 0.15rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06rem;
+}
+
+.landingCardTitle {
+    color: #173042;
+    font-size: 1.65rem !important;
+    font-weight: 750;
+}
+
+.landingCardDescription {
+    min-height: 4.2rem;
+    color: #526675;
+    font-size: 0.98rem;
+    line-height: 1.55;
+}
+
+.landingFeatureList {
+    gap: 0.75rem;
+    margin: 0.25rem 0 0.75rem;
+}
+
+.landingFeatureList .sapMFlexBox {
+    gap: 0.7rem;
+}
+
+.landingFeatureList .sapUiIcon {
+    flex: 0 0 1.2rem;
+    color: #087e8b;
+    font-size: 1rem;
+}
+
+.landingFeatureList .sapMText {
+    color: #304956;
+    line-height: 1.45;
+}
+
+.landingCardButton {
+    margin-top: 0.25rem;
+}
+
+.landingCardButton .sapMBtnInner {
+    min-height: 2.8rem;
+    border-radius: 0.55rem;
+    font-weight: 700;
+}
+
+.userCard .landingCardButton .sapMBtnInner {
+    background: #087e8b;
+    border-color: #087e8b;
+}
+
+.landingFooter {
+    gap: 0.55rem;
+    padding: 0.5rem 0 0.25rem;
+    color: #617580;
+    text-align: center;
+}
+
+.landingFooter .sapUiIcon {
+    color: #d66b55;
+}
+
+/* Responsive layout for mobile devices */
+@media (max-width: 600px) {
+    .landingMain {
+        padding: 1rem 1rem 1.5rem;
+    }
+
+    .landingHeadline {
+        font-size: 2rem !important;
+    }
+
+    .landingSubtitle {
+        font-size: 0.98rem;
+    }
+
+    .landingHighlights {
+        gap: 0.6rem;
+    }
+
+    .landingCards {
+        gap: 1rem;
+    }
+
+    .landingCard {
+        min-width: 100%;
+    }
+
+    .landingCardBody {
+        padding: 1.1rem;
+    }
+}
+/* Keep animal faces visible inside the landing-page cards */
+/* Landing-page animal images */
+.landingCardImage {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center center;
+    background: #e5edf0;
+}
+
+/* Dog: bring the face fully into view */
+.userCard .landingCardImage {
+    object-position: center 50%;
+}
+
+/* Cat: keep the full face visible */
+.adminCard .landingCardImage {
+    object-position: center 45%;
+}
+/* Dashboard chart layout and styling
+   Copy these rules to the END of app/animaladoption/webapp/css/style.css */
+
+.dashboardChartsRow {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+.dashboardChartPanel {
+    flex: 1 1 calc(33.333% - 16px);
+    width: auto !important;
+    min-width: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.dashboardChartPanel .sapMPanelContent {
+    padding: 0.75rem;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+
+.dashboardChartPanel .sapMPanelHdr {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #173042;
+}
+
+.dashboardChartHost {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 320px;
+    box-sizing: border-box;
+}
+
+.dashboardChartHost .sapVizFrame,
+.dashboardVizFrame {
+    display: block;
+    width: 100% !important;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+    .dashboardChartPanel {
+        flex: 1 1 calc(50% - 16px);
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboardChartsRow {
+        gap: 12px;
+    }
+
+    .dashboardChartPanel {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
+
+    .dashboardChartHost {
+        min-height: 280px;
+    }
+}
+/* PawTrack user dashboard styles
+   Append this file's contents to app/animaladoption/webapp/css/style.css. */
+
+.userDashboardPage {
+    background: #f3f7f5;
+}
+
+.userHeaderToolbar {
+    min-height: 3.5rem;
+    padding: 0 1rem;
+    background: #ffffff;
+    border-bottom: 1px solid #dce5e7;
+}
+
+.userHeaderSubtitle {
+    margin-left: 0.5rem;
+    color: #6b7d89;
+    font-size: 0.8rem;
+}
+
+.userProfileAvatar {
+    margin-left: 0.75rem;
+}
+
+.userDashboardLayout {
+    min-height: calc(100vh - 3.5rem);
+    background: #f3f7f5;
+}
+
+.userSideNavigation {
+    flex: 0 0 13rem;
+    min-height: calc(100vh - 3.5rem);
+    padding: 0.75rem;
+    box-sizing: border-box;
+    background: #102d46;
+    color: #ffffff;
+}
+
+.userBrandBlock {
+    padding: 0.9rem 0.6rem 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.userBrandRow {
+    gap: 0.65rem;
+}
+
+.userBrandRow .sapUiIcon {
+    color: #8de0a0;
+}
+
+.userBrandTitle {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+.userBrandCaption,
+.userNavigationCaption {
+    color: #b7c8d6 !important;
+    font-size: 0.72rem;
+}
+
+.userNavigationCaption {
+    margin: 1.25rem 0 0.5rem 0.5rem;
+    letter-spacing: 0.08rem;
+    font-weight: 700;
+}
+
+.userNavigationList {
+    background: transparent;
+}
+
+.userNavigationList .sapMLIB {
+    margin: 0.15rem 0;
+    border-radius: 0.4rem;
+    background: transparent;
+}
+
+.userNavigationList .sapMSLITitleOnly,
+.userNavigationList .sapMSLIImgIcon,
+.userNavigationList .sapUiIcon {
+    color: #e7eff6 !important;
+}
+
+.userNavigationList .sapMLIB:active,
+.userNavigationList .sapMLIB:hover {
+    background: #1b4b70;
+}
+
+.userSidebarHelp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: auto;
+    padding: 0.85rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 0.65rem;
+    color: #ffffff;
+}
+
+.userSidebarHelp .sapUiIcon {
+    color: #8de0a0;
+}
+
+.userSidebarHelp .sapMText {
+    color: #ffffff;
+}
+
+.userMainContent {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 1.25rem 1.5rem 0.75rem;
+    box-sizing: border-box;
+}
+
+.userContentSection {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.userWelcomeHero {
+    overflow: hidden;
+    padding: 1.8rem 2rem;
+    border-radius: 1rem;
+    color: #ffffff;
+    background: linear-gradient(115deg, #17613e 0%, #2d8a55 60%, #4ca968 100%);
+    box-shadow: 0 0.4rem 1.4rem rgba(23, 72, 52, 0.12);
+}
+
+.userWelcomeTitle {
+    color: #ffffff !important;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.userEyebrow {
+    margin-bottom: 0.4rem;
+    color: #2f9a56;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+}
+
+.userWelcomeHero .userEyebrow {
+    color: #d3f4dc;
+}
+
+.userWelcomeDescription {
+    max-width: 48rem;
+    margin-top: 0.3rem;
+    color: #edf9f0 !important;
+    line-height: 1.5;
+}
+
+.userWelcomeActions {
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+}
+
+.userWelcomeActions .sapMBtnInner {
+    border-radius: 0.4rem;
+}
+
+.userHeroImageFrame {
+    position: relative;
+    gap: 0.6rem;
+    padding: 0.65rem;
+    border: 3px solid rgba(255,255,255,0.85);
+    border-radius: 1rem;
+    background: rgba(255,255,255,0.13);
+}
+
+.userHeroImage {
+    border-radius: 0.6rem;
+    object-fit: cover;
+    object-position: center 40%;
+}
+
+.userHeroImageFrame .sapMObjStatusText,
+.userHeroImageFrame .sapUiIcon {
+    color: #ffffff !important;
+}
+
+.userMetricRow {
+    gap: 0.75rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.userMetricTile {
+    flex: 1 1 13rem;
+    min-width: 12rem;
+    border: 1px solid #e0e8e8;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(18, 47, 60, 0.06);
+}
+
+.userMetricTile .sapMGTContent {
+    padding: 0.5rem 0.75rem 0.75rem;
+}
+
+.userSectionTitle {
+    margin: 1.25rem 0 0.75rem;
+    color: #1a3548;
+}
+
+.userQuickActionsRow {
+    gap: 0.7rem;
+    margin-bottom: 1.25rem;
+}
+
+.userQuickAction {
+    flex: 1 1 12rem;
+    min-width: 11rem;
+}
+
+.userQuickAction .sapMBtnInner {
+    height: 3.5rem;
+    justify-content: flex-start;
+    border: 1px solid #dce7e7;
+    border-radius: 0.65rem;
+    background: #ffffff;
+}
+
+.userHomeBottomRow {
+    gap: 1rem;
+}
+
+.userHomePanel {
+    flex: 1 1 25rem;
+    min-width: 0;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border: 1px solid #e0e8e8;
+    border-radius: 0.8rem;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(18, 47, 60, 0.05);
+}
+
+.userHomePanel .sapMPanelHdr {
+    font-weight: 700;
+    color: #1a3548;
+    background: #ffffff;
+}
+
+.userHomePanel .sapMPanelContent {
+    padding: 1rem;
+}
+
+.userPanelDescription,
+.userSectionDescription {
+    margin-bottom: 1rem;
+    color: #647989;
+    line-height: 1.5;
+}
+
+.userFeaturedAnimalsHost,
+.userAnimalsCardsHost,
+.userAdoptionsCardsHost {
+    gap: 1rem;
+    align-items: stretch;
+    margin: 0.75rem 0 1rem;
+}
+
+.userAnimalCard {
+    overflow: hidden;
+    border: 1px solid #dfe8e8;
+    border-radius: 0.8rem;
+    background: #ffffff;
+    box-shadow: 0 3px 9px rgba(16, 45, 70, 0.07);
+}
+
+.userAnimalCardImage {
+    display: block;
+    object-fit: cover;
+    object-position: center 35%;
+    background: #e7eeee;
+}
+
+.userAnimalCardDetails {
+    gap: 0.55rem;
+    padding: 1rem;
+}
+
+.userAnimalCardDetails .sapMTitle {
+    margin-top: 0.15rem;
+    color: #1a3548;
+}
+
+.userAnimalFee {
+    color: #277f4b;
+    font-weight: 700;
+}
+
+.userEmptyState {
+    gap: 0.8rem;
+    width: 100%;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border: 1px dashed #c9d8d8;
+    border-radius: 0.8rem;
+    background: #ffffff;
+}
+
+.userEmptyState .sapUiIcon {
+    color: #278b55;
+}
+
+.userSectionToolbar {
+    margin: 1rem 0;
+    border: 1px solid #e0e8e8;
+    border-radius: 0.6rem;
+    background: #ffffff;
+}
+
+.userApplicationSummaryRow {
+    overflow: hidden;
+    margin: 1rem 0;
+    border: 1px solid #dce7e7;
+    border-radius: 0.75rem;
+    background: #ffffff;
+}
+
+.userApplicationSummaryItem {
+    flex: 1 1 10rem;
+    padding: 1rem;
+    border-right: 1px solid #e5eded;
+}
+
+.userApplicationSummaryItem:last-child {
+    border-right: none;
+}
+
+.userApplicationSummaryItem .sapMTitle {
+    color: #1a3548;
+}
+
+.userApplicationsList {
+    background: transparent;
+}
+
+.userApplicationsList .sapMLIB {
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    border: 1px solid #dfe8e8;
+    border-radius: 0.8rem;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(16, 45, 70, 0.05);
+}
+
+.userApplicationCard {
+    gap: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.userApplicationAnimalImage {
+    flex: 0 0 auto;
+    border-radius: 0.55rem;
+    object-fit: cover;
+    object-position: center 30%;
+    background: #e7eeee;
+}
+
+.userApplicationDetails {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0.45rem;
+}
+
+.userApplicationTitleRow {
+    gap: 0.75rem;
+}
+
+.userApplicationActions {
+    flex: 0 0 9rem;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    border-left: 1px solid #e7eeee;
+}
+
+.userMutedText {
+    color: #708391;
+    font-size: 0.82rem;
+}
+
+.userStatusBadge {
+    margin-left: 0.4rem;
+}
+
+.userAdoptionImpactBanner {
+    margin: 1rem 0;
+    padding: 1.5rem 2rem;
+    border-radius: 0.9rem;
+    color: #ffffff;
+    background: linear-gradient(110deg, #17613e, #4ca968);
+}
+
+.userAdoptionImpactBanner .sapMTitle,
+.userAdoptionImpactBanner .sapMText {
+    color: #ffffff !important;
+}
+
+.userAdoptionCountBox {
+    min-width: 7rem;
+    padding: 0.8rem;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 0.7rem;
+    background: rgba(255,255,255,0.12);
+}
+
+.userAdoptionCard {
+    flex: 1 1 32rem;
+    min-width: 0;
+    gap: 1rem;
+    overflow: hidden;
+    border: 1px solid #dfe8e8;
+    border-radius: 0.8rem;
+    background: #ffffff;
+    box-shadow: 0 2px 7px rgba(16, 45, 70, 0.06);
+}
+
+.userAdoptionImage {
+    flex: 0 0 auto;
+    object-fit: cover;
+    object-position: center 30%;
+    background: #e7eeee;
+}
+
+.userAdoptionDetails {
+    gap: 0.6rem;
+    padding: 1rem;
+}
+
+.userProfileForm {
+    gap: 0.55rem;
+    max-width: 45rem;
+    padding: 0.5rem;
+}
+
+.userFooter {
+    gap: 0.5rem;
+    padding: 1.5rem 0 0.75rem;
+    color: #617382;
+    font-size: 0.8rem;
+}
+
+.userFooter .sapUiIcon {
+    color: #e06f5b;
+}
+
+.userGlobalSearch {
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 900px) {
+    .userDashboardLayout {
+        display: block;
+    }
+
+    .userSideNavigation {
+        width: 100% !important;
+        min-height: auto;
+    }
+
+    .userNavigationCaption,
+    .userSidebarHelp {
+        display: none;
+    }
+
+    .userMainContent {
+        padding: 1rem;
+    }
+
+    .userWelcomeHero {
+        padding: 1.25rem;
+    }
+
+    .userWelcomeCopy {
+        width: 100% !important;
+    }
+
+    .userHeroImageFrame {
+        margin-top: 1rem;
+    }
+
+    .userApplicationCard {
+        flex-wrap: wrap;
+    }
+
+    .userApplicationActions {
+        flex: 1 1 100%;
+        flex-direction: row;
+        align-items: center;
+        padding: 0.75rem 0 0;
+        border-left: none;
+        border-top: 1px solid #e7eeee;
+    }
+}
+
+@media (max-width: 600px) {
+    .userHeaderSubtitle,
+    .userHeaderToolbar .sapMSF {
+        display: none;
+    }
+
+    .userMainContent {
+        padding: 0.65rem;
+    }
+
+    .userWelcomeTitle {
+        font-size: 1.5rem;
+    }
+
+    .userMetricTile {
+        flex: 1 1 100%;
+    }
+
+    .userApplicationSummaryRow {
+        flex-wrap: wrap;
+    }
+
+    .userApplicationSummaryItem {
+        flex: 1 1 100%;
+        border-right: none;
+        border-bottom: 1px solid #e5eded;
+    }
+
+    .userAdoptionCard {
+        flex-wrap: wrap;
+    }
+
+    .userAdoptionImage {
+        width: 100% !important;
+        height: 13rem !important;
+    }
+}

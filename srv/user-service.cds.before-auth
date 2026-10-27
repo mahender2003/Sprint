@@ -1,0 +1,54 @@
+using animaladoption as db from '../db/schema';
+
+@requires: 'User'
+service UserService {
+
+    @readonly
+    entity Animals as projection on db.Animals;
+
+    @readonly
+    entity Shelters as projection on db.Shelters;
+
+    @readonly
+    entity HealthRecords as projection on db.HealthRecords;
+
+    @readonly
+    entity Inspections as projection on db.Inspections;
+
+    entity Users as projection on db.Users;
+
+    entity AdoptionApplications
+        as projection on db.AdoptionApplications;
+
+    @readonly
+    entity Adoptions
+        as projection on db.Adoptions;
+
+    action applyForAdoption(
+        userID : UUID,
+        animalID : UUID,
+        reasonForAdoption : String(500),
+        housingDetails : String(500),
+        petExperience : String(500)
+    ) returns UUID;
+
+    action withdrawApplication(
+        applicationID : UUID
+    ) returns String;
+
+    action getUserApplications(
+        userID : UUID
+    ) returns array of AdoptionApplications;
+
+    action getUserAdoptions(
+        userID : UUID
+    ) returns array of Adoptions;
+
+    action updateUserProfile(
+        userID : UUID,
+        firstName : String(100),
+        lastName : String(100),
+        email : String(255),
+        phoneNumber : String(30)
+    ) returns String;
+}

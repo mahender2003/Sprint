@@ -1,0 +1,3 @@
+ID,shelterName,shelterCode,contactNumber,email,website,capacity,currentOccupancy,operatingTime,closingTime,shelterType,licenseNumber,addressLine1,addressLine2,city,state,postalCode,country
+aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa,Happy Paws Shelter,HPS001,9876500001,contact@happypaws.org,https://www.happypaws.org,50,20,08:00:00,18:00:00,Dog Shelter,LIC001,10 Shelter Road,Phase 1,Bangalore,Karnataka,560001,India
+bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb,Safe Haven Shelter,SHS001,9876500002,info@safehaven.org,https://www.safehaven.org,40,15,09:00:00,19:00:00,Cat Shelter,LIC002,22 Lake View Street,Zone B,Chennai,Tamil Nadu,600040,India

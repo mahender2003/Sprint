@@ -1,0 +1,696 @@
+
+<mvc:View
+    id="userDashboardView"
+    controllerName="animaladoption.animaladoption.controller.UserDashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page
+        id="userDashboardPage"
+        showHeader="false"
+        enableScrolling="true"
+        class="userDashboardPage">
+
+        <customHeader>
+            <Toolbar id="userHeaderToolbar" class="userHeaderToolbar">
+                <Button
+                    id="userNavToggleButton"
+                    icon="sap-icon://menu2"
+                    type="Transparent"
+                    tooltip="Toggle navigation"
+                    press=".onToggleNavigation"/>
+
+                <Title
+                    id="userHeaderTitle"
+                    text="PawTrack"
+                    level="H4"/>
+
+                <Text
+                    id="userHeaderSubtitle"
+                    text="Animal Adoption"
+                    class="userHeaderSubtitle"/>
+
+                <ToolbarSpacer id="userHeaderSpacer"/>
+
+                <SearchField
+                    id="userGlobalSearch"
+                    width="17rem"
+                    placeholder="Search animals..."
+                    liveChange=".onAnimalSearch"
+                    visible="{= ${userView>/section} === 'animals' }"/>
+
+                <Button
+                    id="userRefreshButton"
+                    icon="sap-icon://refresh"
+                    text="Refresh"
+                    type="Transparent"
+                    press=".onRefresh"/>
+
+                <Avatar
+                    id="userProfileAvatar"
+                    initials="{userView>/initials}"
+                    displaySize="S"
+                    class="userProfileAvatar"/>
+
+                <Text
+                    id="userHeaderName"
+                    text="{userView>/fullName}"/>
+            </Toolbar>
+        </customHeader>
+
+        <content>
+            <HBox
+                id="userDashboardLayout"
+                width="100%"
+                alignItems="Stretch"
+                class="userDashboardLayout">
+
+                <VBox
+                    id="userSideNavigation"
+                    width="13rem"
+                    class="userSideNavigation">
+
+                    <VBox id="userBrandBlock" class="userBrandBlock">
+                        <HBox id="userBrandRow" alignItems="Center">
+                            <core:Icon
+                                id="userBrandIcon"
+                                src="sap-icon://heart"
+                                size="1.5rem"/>
+
+                            <VBox id="userBrandTextBlock">
+                                <Title
+                                    id="userBrandTitle"
+                                    text="PawTrack"
+                                    level="H4"/>
+
+                                <Text
+                                    id="userBrandCaption"
+                                    text="Animal Welfare Suite"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <Text
+                        id="userNavigationCaption"
+                        text="MY ADOPTION JOURNEY"
+                        class="userNavigationCaption"/>
+
+                    <List
+                        id="userNavigationList"
+                        mode="None"
+                        showSeparators="None"
+                        class="userNavigationList">
+
+                        <StandardListItem
+                            id="userNavDashboard"
+                            title="Dashboard"
+                            icon="sap-icon://home"
+                            type="Active"
+                            selected="true"
+                            press=".onShowDashboard"/>
+
+                        <StandardListItem
+                            id="userNavAnimals"
+                            title="Browse Animals"
+                            icon="sap-icon://search"
+                            type="Active"
+                            press=".onShowAnimals"/>
+
+                        <StandardListItem
+                            id="userNavApplications"
+                            title="My Applications"
+                            icon="sap-icon://document-text"
+                            type="Active"
+                            press=".onShowApplications"/>
+
+                        <StandardListItem
+                            id="userNavAdoptions"
+                            title="My Adoptions"
+                            icon="sap-icon://heart"
+                            type="Active"
+                            press=".onShowAdoptions"/>
+
+                        <StandardListItem
+                            id="userNavProfile"
+                            title="Profile"
+                            icon="sap-icon://person-placeholder"
+                            type="Active"
+                            press=".onShowProfile"/>
+                    </List>
+
+                    <VBox id="userSidebarHelp" class="userSidebarHelp">
+                        <core:Icon
+                            id="userHelpIcon"
+                            src="sap-icon://sys-help-2"
+                            size="1.2rem"/>
+
+                        <VBox id="userHelpText">
+                            <Text
+                                id="userHelpTitle"
+                                text="Need help?"/>
+
+                            <Text
+                                id="userHelpSubtitle"
+                                text="Contact your shelter team."/>
+                        </VBox>
+                    </VBox>
+                </VBox>
+
+                <VBox
+                    id="userMainContent"
+                    width="100%"
+                    class="userMainContent">
+
+                    <!-- USER DASHBOARD -->
+                    <VBox
+                        id="userHomeSection"
+                        width="100%"
+                        class="userContentSection">
+
+                        <VBox
+                            id="userWelcomeHero"
+                            class="userWelcomeHero">
+
+                            <HBox
+                                id="userWelcomeHeroInner"
+                                width="100%"
+                                alignItems="Center"
+                                justifyContent="SpaceBetween"
+                                wrap="Wrap">
+
+                                <VBox
+                                    id="userWelcomeCopy"
+                                    width="65%">
+
+                                    <Text
+                                        id="userWelcomeEyebrow"
+                                        text="YOUR ADOPTION JOURNEY"
+                                        class="userEyebrow"/>
+
+                                    <Title
+                                        id="userWelcomeTitle"
+                                        text="{userView>/welcomeTitle}"
+                                        level="H1"
+                                        wrapping="true"
+                                        class="userWelcomeTitle"/>
+
+                                    <Text
+                                        id="userWelcomeDescription"
+                                        text="Discover your new best friend, track your applications, and celebrate every step toward a loving home."
+                                        wrapping="true"
+                                        class="userWelcomeDescription"/>
+
+                                    <HBox
+                                        id="userWelcomeActions"
+                                        wrap="Wrap"
+                                        class="userWelcomeActions">
+
+                                        <Button
+                                            id="userFindCompanionButton"
+                                            text="Find a companion"
+                                            icon="sap-icon://search"
+                                            type="Emphasized"
+                                            press=".onShowAnimals"/>
+
+                                        <Button
+                                            id="userTrackApplicationsButton"
+                                            text="Track applications"
+                                            icon="sap-icon://document-text"
+                                            type="Transparent"
+                                            press=".onShowApplications"/>
+                                    </HBox>
+                                </VBox>
+
+                                <VBox
+                                    id="userHeroImageFrame"
+                                    alignItems="Center"
+                                    justifyContent="Center"
+                                    class="userHeroImageFrame">
+
+                                    <Image
+                                        id="userHeroImage"
+                                        src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&amp;fit=crop&amp;w=600&amp;h=500&amp;q=85"
+                                        width="12rem"
+                                        height="10rem"
+                                        decorative="false"
+                                        alt="Happy dog waiting for a home"
+                                        class="userHeroImage"/>
+
+                                    <ObjectStatus
+                                        id="userHeroImpactStatus"
+                                        text="Every adoption matters"
+                                        icon="sap-icon://heart"
+                                        state="Success"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <HBox
+                            id="userMetricRow"
+                            width="100%"
+                            wrap="Wrap"
+                            class="userMetricRow">
+
+                            <GenericTile
+                                id="userTotalApplicationsTile"
+                                header="My Applications"
+                                subheader="Applications submitted"
+                                press=".onShowApplications"
+                                class="userMetricTile">
+                                <TileContent id="userApplicationsTileContent">
+                                    <NumericContent
+                                        id="userApplicationsMetric"
+                                        value="{userView>/metrics/totalApplications}"
+                                        icon="sap-icon://document-text"/>
+                                </TileContent>
+                            </GenericTile>
+
+                            <GenericTile
+                                id="userApprovedAdoptionsTile"
+                                header="My Adoptions"
+                                subheader="Adoptions approved"
+                                press=".onShowAdoptions"
+                                class="userMetricTile">
+                                <TileContent id="userAdoptionsTileContent">
+                                    <NumericContent
+                                        id="userAdoptionsMetric"
+                                        value="{userView>/metrics/totalAdoptions}"
+                                        icon="sap-icon://heart"/>
+                                </TileContent>
+                            </GenericTile>
+
+                            <GenericTile
+                                id="userPendingApplicationsTile"
+                                header="Pending Applications"
+                                subheader="Awaiting review"
+                                press=".onShowApplications"
+                                class="userMetricTile">
+                                <TileContent id="userPendingTileContent">
+                                    <NumericContent
+                                        id="userPendingMetric"
+                                        value="{userView>/metrics/pendingApplications}"
+                                        icon="sap-icon://pending"/>
+                                </TileContent>
+                            </GenericTile>
+
+                            <GenericTile
+                                id="userAvailableAnimalsTile"
+                                header="Available Animals"
+                                subheader="Ready for a family"
+                                press=".onShowAnimals"
+                                class="userMetricTile">
+                                <TileContent id="userAvailableTileContent">
+                                    <NumericContent
+                                        id="userAvailableMetric"
+                                        value="{userView>/metrics/availableAnimals}"
+                                        icon="sap-icon://search"/>
+                                </TileContent>
+                            </GenericTile>
+                        </HBox>
+
+                        <!-- ADOPTED ANIMALS ON DASHBOARD -->
+                        <VBox
+                            id="userDashboardAdoptionsPanel"
+                            class="userPanel">
+
+                            <HBox
+                                id="userDashboardAdoptionsHeading"
+                                alignItems="Center"
+                                justifyContent="SpaceBetween">
+
+                                <VBox id="userDashboardAdoptionsHeadingText">
+                                    <Text
+                                        id="userDashboardAdoptionsEyebrow"
+                                        text="FOREVER HOME"
+                                        class="userEyebrow"/>
+
+                                    <Title
+                                        id="userDashboardAdoptionsTitle"
+                                        text="Your adopted companions"
+                                        level="H2"/>
+
+                                    <Text
+                                        id="userDashboardAdoptionsSubtitle"
+                                        text="The happy faces who are already part of your family."/>
+                                </VBox>
+
+                                <Button
+                                    id="userDashboardViewAdoptionsButton"
+                                    text="View my adoptions"
+                                    type="Transparent"
+                                    press=".onShowAdoptions"/>
+                            </HBox>
+
+                            <HBox
+                                id="userDashboardAdoptionsHost"
+                                width="100%"
+                                wrap="Wrap"
+                                class="userAdoptionsCardsHost"/>
+                        </VBox>
+
+                        <!-- AVAILABLE ANIMALS -->
+                        <VBox
+                            id="userRecentAnimalsPanel"
+                            class="userPanel">
+
+                            <HBox
+                                id="userRecentAnimalsHeading"
+                                alignItems="Center"
+                                justifyContent="SpaceBetween">
+
+                                <VBox id="userRecentAnimalsHeadingText">
+                                    <Title
+                                        id="userRecentAnimalsTitle"
+                                        text="Meet your future best friend"
+                                        level="H2"/>
+
+                                    <Text
+                                        id="userRecentAnimalsSubtitle"
+                                        text="Animals currently waiting for a loving home."/>
+                                </VBox>
+
+                                <Button
+                                    id="userViewAllAnimalsButton"
+                                    text="View all"
+                                    type="Transparent"
+                                    press=".onShowAnimals"/>
+                            </HBox>
+
+                            <HBox
+                                id="userRecentAnimalsHost"
+                                width="100%"
+                                wrap="Wrap"
+                                class="userAnimalCardsHost"/>
+                        </VBox>
+
+                        <!-- RECENT APPLICATION UPDATES -->
+                        <VBox
+                            id="userRecentApplicationsPanel"
+                            class="userPanel">
+
+                            <HBox
+                                id="userRecentApplicationsHeading"
+                                alignItems="Center"
+                                justifyContent="SpaceBetween">
+
+                                <Title
+                                    id="userRecentApplicationsTitle"
+                                    text="Application updates"
+                                    level="H2"/>
+
+                                <Button
+                                    id="userViewAllApplicationsButton"
+                                    text="View all"
+                                    type="Transparent"
+                                    press=".onShowApplications"/>
+                            </HBox>
+
+                            <VBox
+                                id="userRecentApplicationsHost"
+                                class="userApplicationsHost"/>
+                        </VBox>
+                    </VBox>
+
+                    <!-- BROWSE ANIMALS -->
+                    <VBox
+                        id="userAnimalsSection"
+                        width="100%"
+                        visible="false"
+                        class="userContentSection">
+
+                        <Text
+                            id="userAnimalsEyebrow"
+                            text="FIND YOUR COMPANION"
+                            class="userEyebrow"/>
+
+                        <Title
+                            id="userAnimalsTitle"
+                            text="Browse animals"
+                            level="H1"/>
+
+                        <Text
+                            id="userAnimalsDescription"
+                            text="Meet animals waiting for their forever homes."/>
+
+                        <HBox
+                            id="userAnimalFilterRow"
+                            width="100%"
+                            wrap="Wrap"
+                            alignItems="Center"
+                            class="userFilterRow">
+
+                            <SearchField
+                                id="userAnimalsSearch"
+                                width="20rem"
+                                placeholder="Search by name, breed or species"
+                                liveChange=".onAnimalSearch"/>
+
+                            <Select
+                                id="userAnimalStatusFilter"
+                                width="12rem"
+                                selectedKey="AVAILABLE"
+                                change=".onAnimalFilterChange">
+
+                                <core:Item
+                                    id="userAnimalAvailableFilter"
+                                    key="AVAILABLE"
+                                    text="Available animals"/>
+
+                                <core:Item
+                                    id="userAnimalAllFilter"
+                                    key="ALL"
+                                    text="All animals"/>
+                            </Select>
+                        </HBox>
+
+                        <HBox
+                            id="userAnimalsCardsHost"
+                            width="100%"
+                            wrap="Wrap"
+                            class="userAnimalCardsHost"/>
+                    </VBox>
+
+                    <!-- MY APPLICATIONS: SUMMARY STRIP REMOVED -->
+                    <VBox
+                        id="userApplicationsSection"
+                        width="100%"
+                        visible="false"
+                        class="userContentSection">
+
+                        <Text
+                            id="userApplicationsEyebrow"
+                            text="MY ADOPTION JOURNEY"
+                            class="userEyebrow"/>
+
+                        <Title
+                            id="userApplicationsTitle"
+                            text="My applications"
+                            level="H1"/>
+
+                        <Text
+                            id="userApplicationsDescription"
+                            text="Track the applications you have submitted and see what happens next."/>
+
+                        <VBox
+                            id="userApplicationsCardsHost"
+                            class="userApplicationsHost"/>
+                    </VBox>
+
+                    <!-- MY ADOPTIONS -->
+                    <VBox
+                        id="userAdoptionsSection"
+                        width="100%"
+                        visible="false"
+                        class="userContentSection">
+
+                        <Text
+                            id="userAdoptionsEyebrow"
+                            text="FOREVER HOME"
+                            class="userEyebrow"/>
+
+                        <Title
+                            id="userAdoptionsTitle"
+                            text="My adoptions"
+                            level="H1"/>
+
+                        <Text
+                            id="userAdoptionsDescription"
+                            text="Celebrate the animals who became part of your family."/>
+
+                        <VBox
+                            id="userAdoptionsImpactBanner"
+                            class="userAdoptionsImpactBanner">
+
+                            <VBox id="userAdoptionsImpactCopy">
+                                <Text
+                                    id="userAdoptionsImpactEyebrow"
+                                    text="YOUR ADOPTION IMPACT"/>
+
+                                <Title
+                                    id="userAdoptionsImpactTitle"
+                                    text="Every adoption changes a life."
+                                    level="H2"/>
+
+                                <Text
+                                    id="userAdoptionsImpactDescription"
+                                    text="Thank you for choosing adoption and giving an animal a second chance."/>
+                            </VBox>
+
+                            <ObjectNumber
+                                id="userAdoptionsImpactNumber"
+                                number="{userView>/metrics/totalAdoptions}"
+                                unit="adoptions"/>
+                        </VBox>
+
+                        <HBox
+                            id="userAdoptionsCardsHost"
+                            width="100%"
+                            wrap="Wrap"
+                            class="userAdoptionsCardsHost"/>
+                    </VBox>
+
+                    <!-- PROFILE -->
+                    <VBox
+                        id="userProfileSection"
+                        width="100%"
+                        visible="false"
+                        class="userContentSection">
+
+                        <Text
+                            id="userProfileEyebrow"
+                            text="YOUR ACCOUNT"
+                            class="userEyebrow"/>
+
+                        <Title
+                            id="userProfileTitle"
+                            text="My profile"
+                            level="H1"/>
+
+                        <Text
+                            id="userProfileDescription"
+                            text="Keep your contact details up to date."/>
+
+                        <VBox
+                            id="userProfileCard"
+                            class="userProfileCard">
+
+                            <HBox
+                                id="userProfileSummary"
+                                alignItems="Center"
+                                class="userProfileSummary">
+
+                                <Avatar
+                                    id="userProfileLargeAvatar"
+                                    initials="{userView>/initials}"
+                                    displaySize="XL"/>
+
+                                <VBox id="userProfileSummaryText">
+                                    <Title
+                                        id="userProfileFullName"
+                                        text="{userView>/fullName}"
+                                        level="H2"/>
+
+                                    <Text
+                                        id="userProfileEmailSummary"
+                                        text="{userView>/profile/email}"/>
+
+                                    <ObjectStatus
+                                        id="userProfileStatus"
+                                        text="Active adopter"
+                                        state="Success"/>
+                                </VBox>
+                            </HBox>
+
+                            <Title
+                                id="userPersonalInformationTitle"
+                                text="Personal information"
+                                level="H3"/>
+
+                            <HBox
+                                id="userProfileNameFields"
+                                width="100%"
+                                wrap="Wrap">
+
+                                <VBox
+                                    id="userFirstNameFieldBox"
+                                    class="userProfileField">
+
+                                    <Label
+                                        id="userFirstNameLabel"
+                                        text="First name"
+                                        required="true"/>
+
+                                    <Input
+                                        id="userFirstNameInput"
+                                        value="{userView>/profile/firstName}"
+                                        maxLength="100"/>
+                                </VBox>
+
+                                <VBox
+                                    id="userLastNameFieldBox"
+                                    class="userProfileField">
+
+                                    <Label
+                                        id="userLastNameLabel"
+                                        text="Last name"
+                                        required="true"/>
+
+                                    <Input
+                                        id="userLastNameInput"
+                                        value="{userView>/profile/lastName}"
+                                        maxLength="100"/>
+                                </VBox>
+                            </HBox>
+
+                            <HBox
+                                id="userProfileContactFields"
+                                width="100%"
+                                wrap="Wrap">
+
+                                <VBox
+                                    id="userEmailFieldBox"
+                                    class="userProfileField">
+
+                                    <Label
+                                        id="userEmailLabel"
+                                        text="Email"
+                                        required="true"/>
+
+                                    <Input
+                                        id="userEmailInput"
+                                        value="{userView>/profile/email}"
+                                        type="Email"
+                                        maxLength="255"/>
+                                </VBox>
+
+                                <VBox
+                                    id="userPhoneFieldBox"
+                                    class="userProfileField">
+
+                                    <Label
+                                        id="userPhoneLabel"
+                                        text="Phone number"/>
+
+                                    <Input
+                                        id="userPhoneInput"
+                                        value="{userView>/profile/phoneNumber}"
+                                        type="Tel"
+                                        maxLength="30"/>
+                                </VBox>
+                            </HBox>
+
+                            <Button
+                                id="userSaveProfileButton"
+                                text="Save profile"
+                                icon="sap-icon://save"
+                                type="Emphasized"
+                                press=".onSaveProfile"/>
+                        </VBox>
+                    </VBox>
+                </VBox>
+            </HBox>
+        </content>
+    </Page>
+</mvc:View>

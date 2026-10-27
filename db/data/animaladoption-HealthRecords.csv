@@ -1,0 +1,4 @@
+ID,animal_ID,checkupDate,healthStatus,diagnosis,treatment,medication,veterinarianName,weight,nextCheckupDate,remarks,medicalDocument
+d1111111-1111-1111-1111-111111111111,c1111111-1111-1111-1111-111111111111,2026-09-01,HEALTHY,Routine Checkup,None,None,Dr Kumar,28.50,2026-12-01,Healthy condition,health-record-1.pdf
+d2222222-2222-2222-2222-222222222222,c2222222-2222-2222-2222-222222222222,2026-09-05,HEALTHY,Vaccination Completed,None,None,Dr Priya,4.30,2026-12-05,Fully vaccinated,health-record-2.pdf
+d3333333-3333-3333-3333-333333333333,c3333333-3333-3333-3333-333333333333,2026-09-10,UNDER_TREATMENT,Minor Leg Injury,Rest and Monitoring,Pain Reliever,Dr Ramesh,31.00,2026-11-10,Recovering well,health-record-3.pdf

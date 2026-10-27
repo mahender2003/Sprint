@@ -1,0 +1,387 @@
+<mvc:View
+    id="adminDashboardView"
+    controllerName="animaladoption.animaladoption.controller.AdminDashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:core="sap.ui.core">
+
+    <tnt:ToolPage id="adminToolPage" sideExpanded="true">
+
+        <tnt:header>
+            <tnt:ToolHeader id="adminToolHeader">
+                <Button
+                    id="toggleSideNavigationButton"
+                    icon="sap-icon://menu2"
+                    type="Transparent"
+                    tooltip="Toggle navigation"
+                    press="onToggleSideNavigation"/>
+
+                <Title
+                    id="applicationHeaderTitle"
+                    text="Animal Adoption Tracker"
+                    level="H4"/>
+
+                <ToolbarSpacer id="headerToolbarSpacer"/>
+
+                <Text
+                    id="adminConsoleLabel"
+                    text="ADMIN CONSOLE"/>
+            </tnt:ToolHeader>
+        </tnt:header>
+
+        <tnt:sideContent>
+            <tnt:SideNavigation
+                id="adminSideNavigation"
+                itemSelect="onNavigationSelect">
+
+                <tnt:NavigationList id="adminNavigationList">
+
+                    <tnt:NavigationListItem
+                        id="dashboardNavigationItem"
+                        key="Dashboard"
+                        text="Dashboard"
+                        icon="sap-icon://home"/>
+
+                    <tnt:NavigationListItem
+                        id="animalManagementNavigationItem"
+                        text="Animal Management"
+                        icon="sap-icon://list">
+
+                        <tnt:NavigationListItem
+                            id="animalsNavigationItem"
+                            key="Animals"
+                            text="Animals"
+                            icon="sap-icon://list"/>
+
+                        <tnt:NavigationListItem
+                            id="healthRecordsNavigationItem"
+                            key="HealthRecords"
+                            text="Health Records"
+                            icon="sap-icon://heart"/>
+                    </tnt:NavigationListItem>
+
+                    <tnt:NavigationListItem
+                        id="sheltersNavigationItem"
+                        key="Shelters"
+                        text="Shelters"
+                        icon="sap-icon://building"/>
+
+                    <tnt:NavigationListItem
+                        id="applicationsNavigationItem"
+                        key="AdoptionApplications"
+                        text="Applications"
+                        icon="sap-icon://request"/>
+
+                    <tnt:NavigationListItem
+                        id="adoptionsNavigationItem"
+                        key="Adoptions"
+                        text="Adoption Records"
+                        icon="sap-icon://documents"/>
+
+                    <tnt:NavigationListItem
+                        id="usersNavigationItem"
+                        key="Users"
+                        text="Users"
+                        icon="sap-icon://group"/>
+
+                    <tnt:NavigationListItem
+                        id="inspectionsNavigationItem"
+                        key="Inspections"
+                        text="Inspections"
+                        icon="sap-icon://appointment"/>
+
+                </tnt:NavigationList>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+
+        <tnt:mainContents>
+            <Page
+                id="adminMainPage"
+                showHeader="false"
+                enableScrolling="true">
+
+                <content>
+
+                    <!-- DASHBOARD -->
+
+                    <VBox
+                        id="dashboardSection"
+                        class="sapUiResponsiveContentPadding"
+                        width="100%">
+
+                        <ObjectStatus
+                            id="liveDashboardStatus"
+                            text="LIVE DASHBOARD"
+                            state="Success"
+                            icon="sap-icon://status-positive"/>
+
+                        <Title
+                            id="dashboardTitle"
+                            text="Animal Adoption Dashboard"
+                            level="H1"/>
+
+                        <Text
+                            id="dashboardDescription"
+                            text="Monitor animals, adoption applications and shelter capacity."/>
+
+                        <Toolbar
+                            id="dashboardToolbar"
+                            class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+
+                            <ToolbarSpacer id="dashboardToolbarSpacer"/>
+
+                            <Button
+                                id="refreshDashboardButton"
+                                text="Refresh"
+                                icon="sap-icon://refresh"
+                                press="onRefreshDashboard"/>
+                        </Toolbar>
+
+                        <!-- KPI TILES -->
+
+                        <HBox
+                            id="dashboardKpiRow"
+                            wrap="Wrap"
+                            class="dashboardKpiRow">
+
+                            <GenericTile
+                                id="totalAnimalsTile"
+                                header="Total Animals"
+                                subheader="Registered animals">
+                                <TileContent id="totalAnimalsTileContent">
+                                    <NumericContent
+                                        id="totalAnimalsValue"
+                                        value="{dashboard>/totalAnimals}"/>
+                                </TileContent>
+                            </GenericTile>
+
+                            <GenericTile
+                                id="availableAnimalsTile"
+                                header="Available Animals"
+                                subheader="Ready for adoption">
+                                <TileContent id="availableAnimalsTileContent">
+                                    <NumericContent
+                                        id="availableAnimalsValue"
+                                        value="{dashboard>/availableAnimals}"
+                                        valueColor="Good"/>
+                                </TileContent>
+                            </GenericTile>
+
+                            <GenericTile
+                                id="adoptedAnimalsTile"
+                                header="Adopted Animals"
+                                subheader="Adopted">
+                                <TileContent id="adoptedAnimalsTileContent">
+                                    <NumericContent
+                                        id="adoptedAnimalsValue"
+                                        value="{dashboard>/adoptedAnimals}"
+                                        valueColor="Good"/>
+                                </TileContent>
+                            </GenericTile>
+
+                            <GenericTile
+                                id="pendingApplicationsTile"
+                                header="Pending Applications"
+                                subheader="Awaiting review">
+                                <TileContent id="pendingApplicationsTileContent">
+                                    <NumericContent
+                                        id="pendingApplicationsValue"
+                                        value="{dashboard>/pendingApplications}"
+                                        valueColor="Critical"/>
+                                </TileContent>
+                            </GenericTile>
+
+                            <GenericTile
+                                id="totalApplicationsTile"
+                                header="Total Applications"
+                                subheader="All applications">
+                                <TileContent id="totalApplicationsTileContent">
+                                    <NumericContent
+                                        id="totalApplicationsValue"
+                                        value="{dashboard>/totalApplications}"/>
+                                </TileContent>
+                            </GenericTile>
+
+                        </HBox>
+
+                        <!-- DASHBOARD CHARTS -->
+
+                        <HBox
+                            id="dashboardChartsRow"
+                            width="100%"
+                            wrap="Wrap"
+                            alignItems="Stretch"
+                            class="dashboardChartsRow sapUiSmallMarginTop">
+
+                            <Panel
+                                id="applicationStatusPanel"
+                                headerText="Application Status"
+                                width="32%"
+                                class="dashboardChartPanel sapUiSmallMarginBottom">
+                                <content>
+                                    <VBox
+                                        id="applicationStatusChart"
+                                        width="100%"
+                                        class="dashboardChartHost"/>
+                                </content>
+                            </Panel>
+
+                            <Panel
+                                id="animalCategoriesPanel"
+                                headerText="Animal Categories"
+                                width="32%"
+                                class="dashboardChartPanel sapUiSmallMarginBottom">
+                                <content>
+                                    <VBox
+                                        id="animalCategoriesChart"
+                                        width="100%"
+                                        class="dashboardChartHost"/>
+                                </content>
+                            </Panel>
+
+                            <Panel
+                                id="adoptionTrendPanel"
+                                headerText="Adoption Trend"
+                                width="32%"
+                                class="dashboardChartPanel sapUiSmallMarginBottom">
+                                <content>
+                                    <VBox
+                                        id="adoptionTrendChart"
+                                        width="100%"
+                                        class="dashboardChartHost"/>
+                                </content>
+                            </Panel>
+
+                        </HBox>
+
+                        <!-- SHELTER OCCUPANCY -->
+
+                        <Panel
+                            id="shelterOccupancyPanel"
+                            headerText="Shelter Occupancy"
+                            class="sapUiSmallMarginTop">
+
+                            <List
+                                id="shelterOccupancyList"
+                                items="{dashboard>/shelterOccupancy}"
+                                noDataText="No shelter records found">
+
+                                <CustomListItem id="shelterOccupancyListItem">
+                                    <VBox
+                                        id="shelterOccupancyItemContainer"
+                                        class="sapUiSmallMargin">
+
+                                        <HBox
+                                            id="shelterOccupancyHeader"
+                                            alignItems="Center"
+                                            justifyContent="SpaceBetween">
+
+                                            <Title
+                                                id="shelterOccupancyName"
+                                                text="{dashboard>shelterName}"
+                                                level="H5"/>
+
+                                            <ObjectStatus
+                                                id="shelterOccupancyStatus"
+                                                text="{dashboard>percentage}% occupied"
+                                                state="{= ${dashboard>percentage} >= 90 ? 'Error' : (${dashboard>percentage} >= 70 ? 'Warning' : 'Success') }"/>
+                                        </HBox>
+
+                                        <Text
+                                            id="shelterOccupancyLocation"
+                                            text="{dashboard>location}"/>
+
+                                        <ProgressIndicator
+                                            id="shelterOccupancyProgress"
+                                            percentValue="{dashboard>percentage}"
+                                            displayValue="{dashboard>occupancy} / {dashboard>capacity} places"/>
+                                    </VBox>
+                                </CustomListItem>
+                            </List>
+                        </Panel>
+
+                    </VBox>
+
+                    <!-- ENTITY MANAGEMENT -->
+
+                    <VBox
+                        id="entitySection"
+                        visible="false"
+                        class="sapUiResponsiveContentPadding"
+                        width="100%">
+
+                        <Title
+                            id="entityTitle"
+                            text="Management"
+                            level="H1"/>
+
+                        <Text
+                            id="entityDescription"
+                            text="Search and manage records."/>
+
+                        <!-- ANIMAL PAGE BANNER -->
+
+                        <VBox
+                            id="animalHeroSection"
+                            visible="false"
+                            class="animalHeroSection"
+                            width="100%">
+
+                            <HBox
+                                id="animalHeroContent"
+                                alignItems="Center"
+                                justifyContent="SpaceBetween"
+                                wrap="Wrap">
+
+                                <VBox
+                                    id="animalHeroText"
+                                    width="70%">
+
+                                    <Text
+                                        id="animalHeroEyebrow"
+                                        text="DISCOVER YOUR PERFECT MATCH"/>
+
+                                    <Title
+                                        id="animalHeroTitle"
+                                        text="Every animal deserves a loving home."
+                                        level="H2"/>
+
+                                    <Text
+                                        id="animalHeroDescription"
+                                        text="Browse animal profiles and manage their adoption journey."/>
+
+                                </VBox>
+
+                                <VBox
+                                    id="animalHeroCount"
+                                    alignItems="Center">
+
+                                    <Title
+                                        id="animalHeroCountValue"
+                                        text="{dashboard>/availableAnimals}"
+                                        level="H1"/>
+
+                                    <Text
+                                        id="animalHeroCountLabel"
+                                        text="Animals available today"/>
+                                </VBox>
+
+                            </HBox>
+                        </VBox>
+
+                        <Toolbar
+                            id="entityToolbar"
+                            class="sapUiSmallMarginTop sapUiSmallMarginBottom"/>
+
+                        <VBox
+                            id="entityTableHost"
+                            width="100%"/>
+
+                    </VBox>
+
+                </content>
+            </Page>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>

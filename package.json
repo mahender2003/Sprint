@@ -1,0 +1,40 @@
+{
+  "name": "final-sprint",
+  "version": "1.0.0",
+  "description": "Welcome to your new CAP project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-animaladoption": "cds watch --open animaladoption.animaladoption/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "start": "cds-serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@cap-js/hana": "^3",
+    "@sap/cds": "^10.2.1",
+    "@sap/xssec": "^4",
+    "hdb": "^2.30.1"
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^10.2.0",
+    "cds-plugin-ui5": "^0.17.0",
+    "mbt": "^1.2.49"
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "cds": {
+    "requires": {
+      "[hybrid]": {
+        "auth": "xsuaa"
+      },
+      "[production]": {
+        "auth": "xsuaa",
+        "db": "hana"
+      }
+    }
+  }
+}

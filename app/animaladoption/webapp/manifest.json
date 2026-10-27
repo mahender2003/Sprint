@@ -1,0 +1,144 @@
+
+{
+  "_version": "1.89.0",
+  "sap.app": {
+    "id": "animaladoption.animaladoption",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.33.0",
+      "toolsId": "f848fd3c-a71c-4de9-a720-218fb4dde18f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/admin/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.153.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.tnt": {},
+        "sap.viz": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "animaladoption.animaladoption.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "animaladoption.animaladoption.view",
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "landingpage",
+          "pattern": "",
+          "target": "Targetlandingpage"
+        },
+        {
+          "name": "adminDashboard",
+          "pattern": "admin",
+          "target": "TargetAdminDashboard"
+        },
+        {
+          "name": "app",
+          "pattern": "app",
+          "target": "TargetApp"
+        },
+        {
+          "name": "userDashboard",
+          "pattern": "user",
+          "target": "TargetUserDashboard"
+        }
+      ],
+      "targets": {
+        "Targetlandingpage": {
+          "id": "landingpage",
+          "name": "landingpage"
+        },
+        "TargetAdminDashboard": {
+          "id": "AdminDashboard",
+          "name": "AdminDashboard"
+        },
+        "TargetApp": {
+          "id": "App",
+          "name": "App"
+        },
+        "TargetUserDashboard": {
+          "id": "UserDashboard",
+          "name": "UserDashboard"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "animaladoption.animaladoption.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

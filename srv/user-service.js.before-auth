@@ -1,0 +1,164 @@
+const cds = require("@sap/cds");
+
+module.exports = class UserService extends cds.ApplicationService {
+    async init() {
+        const {
+            Users,
+            Animals,
+            AdoptionApplications,
+            Adoptions
+        } = this.entities;
+
+        this.on("applyForAdoption", async (req) => {
+            const tx = cds.tx(req);
+            const userID = req.data.userID;
+            const animalID = req.data.animalID;
+
+            const user = await tx.run(
+                SELECT.one.from(Users).where({ ID: userID })
+            );
+            if (!user) {
+                return req.reject(404, "User not found");
+            }
+
+            const animal = await tx.run(
+                SELECT.one.from(Animals).where({ ID: animalID })
+            );
+            if (!animal) {
+                return req.reject(404, "Animal not found");
+            }
+
+            // The schema uses Animals.status and uppercase enum values.
+            if (animal.status !== "AVAILABLE") {
+                return req.reject(400, "Animal is not available for adoption");
+            }
+
+            const existing = await tx.run(
+                SELECT.one.from(AdoptionApplications).where({
+                    animal_ID: animalID,
+                    applicant_ID: userID,
+                    status: { "!=": "WITHDRAWN" }
+                })
+            );
+            if (existing) {
+                return req.reject(400, "You already have an active application for this animal");
+            }
+
+            const id = cds.utils.uuid();
+            await tx.run(
+                INSERT.into(AdoptionApplications).entries({
+                    ID: id,
+                    animal_ID: animalID,
+                    applicant_ID: userID,
+                    applicationDate: new Date().toISOString().slice(0, 10),
+                    reasonForAdoption: req.data.reasonForAdoption || "",
+                    housingDetails: req.data.housingDetails || "",
+                    petExperience: req.data.petExperience || "",
+                    status: "SUBMITTED"
+                })
+            );
+
+            return id;
+        });
+
+        this.on("withdrawApplication", async (req) => {
+            const tx = cds.tx(req);
+            const application = await tx.run(
+                SELECT.one.from(AdoptionApplications).where({
+                    ID: req.data.applicationID
+                })
+            );
+
+            if (!application) {
+                return req.reject(404, "Application not found");
+            }
+
+            // Verify the application belongs to the requested user when a userID is supplied.
+            // For production, ownership must be enforced using the authenticated principal.
+            if (req.data.userID && application.applicant_ID !== req.data.userID) {
+                return req.reject(403, "You cannot withdraw another user's application");
+            }
+
+            if (application.status !== "SUBMITTED") {
+                return req.reject(400, "Only SUBMITTED applications can be withdrawn");
+            }
+
+            await tx.run(
+                UPDATE(AdoptionApplications)
+                    .set({ status: "WITHDRAWN" })
+                    .where({ ID: req.data.applicationID })
+            );
+
+            return "Application withdrawn successfully";
+        });
+
+        this.on("getUserApplications", async (req) => {
+            const userID = req.data.userID;
+            const tx = cds.tx(req);
+
+            const user = await tx.run(
+                SELECT.one.from(Users).where({ ID: userID })
+            );
+            if (!user) {
+                return req.reject(404, "User not found");
+            }
+
+            return tx.run(
+                SELECT.from(AdoptionApplications)
+                    .where({ applicant_ID: userID })
+                    .orderBy({ applicationDate: "desc" })
+            );
+        });
+
+        this.on("getUserAdoptions", async (req) => {
+            const userID = req.data.userID;
+            const tx = cds.tx(req);
+
+            const user = await tx.run(
+                SELECT.one.from(Users).where({ ID: userID })
+            );
+            if (!user) {
+                return req.reject(404, "User not found");
+            }
+
+            // Adoptions has no user_ID field in the schema.
+            // Find adoption records whose application belongs to this user.
+            const userApplicationIds = SELECT.from(AdoptionApplications)
+                .columns("ID")
+                .where({ applicant_ID: userID });
+
+            return tx.run(
+                SELECT.from(Adoptions)
+                    .where({ application_ID: { in: userApplicationIds } })
+                    .orderBy({ adoptionDate: "desc" })
+            );
+        });
+
+        this.on("updateUserProfile", async (req) => {
+            const tx = cds.tx(req);
+            const userID = req.data.userID;
+
+            const user = await tx.run(
+                SELECT.one.from(Users).where({ ID: userID })
+            );
+            if (!user) {
+                return req.reject(404, "User not found");
+            }
+
+            await tx.run(
+                UPDATE(Users)
+                    .set({
+                        firstName: req.data.firstName,
+                        lastName: req.data.lastName,
+                        email: req.data.email,
+                        phoneNumber: req.data.phoneNumber || null
+                    })
+                    .where({ ID: userID })
+            );
+
+            return "Profile updated successfully";
+        });
+
+        return super.init();
+    }
+};
